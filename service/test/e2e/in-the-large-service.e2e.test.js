@@ -10,7 +10,7 @@ const {
 } = require('@applitools/docker-compose-testkit')
 const packageJson = require('../../package.json')
 
-describe('service (e2e)', function() {
+describe('in-the-large-service (e2e)', function() {
   const composePath = path.join(__dirname, 'docker-compose.yml')
   const envName = dockerComposeTool(before, after, composePath, {
     shouldPullImages: !!process.env.NODE_ENV && process.env.NODE_ENV !== 'development',

@@ -8,7 +8,7 @@ services:
     ports:
       - 5432
   app:
-    image: applitools/service
+    image: applitools/in-the-large-service
     ports:
       - 80
     environment:

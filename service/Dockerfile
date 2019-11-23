@@ -14,4 +14,4 @@ COPY . .
 EXPOSE 80
 ENV PORT=80
 
-CMD ["node", "--max-old-space-size=200", "scripts/run-service.js"]
+CMD ["node", "--max-old-space-size=200", "scripts/run-in-the-large-service.js"]

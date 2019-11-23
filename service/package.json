@@ -1,8 +1,8 @@
 {
-  "name": "@giltayar/programming-nodejs-in-the-large-service",
+  "name": "@giltayar/in-the-large-service",
   "version": "1.0.0",
   "description": "",
-  "main": "src/service.js",
+  "main": "src/in-the-large-service.js",
   "engines": {
     "node": ">=10.3.0"
   },
@@ -15,19 +15,19 @@
     "access": "restricted"
   },
   "bin": {
-    "run-service": "scripts/run-service.js"
+    "run-service": "scripts/run-in-the-large-service.js"
   },
   "scripts": {
-    "start": "scripts/run-service.js",
+    "start": "scripts/run-in-the-large-service.js",
     "test": "npm run eslint && npm run test:mocha-parallel",
     "test:mocha": "mocha --no-timeouts --trace-warnings --exit 'test/unit/*.test.js' 'test/it/*.test.js' 'test/e2e/*.test.js'",
     "test:mocha-parallel": "mocha-parallel-tests --no-timeouts --trace-warnings --exit 'test/unit/*.test.js' 'test/it/*.test.js' 'test/e2e/*.test.js'",
     "eslint": "eslint '**/*.js'",
     "build": "#",
     "postbuild": "npm run build:docker",
-    "build:docker": "docker build -t applitools/service --build-arg NPM_FILE=`cat ~/.npmrc` . && docker tag applitools/service applitools/service:${npm_package_version}",
+    "build:docker": "docker build -t applitools/in-the-large-service --build-arg NPM_FILE=`cat ~/.npmrc` . && docker tag applitools/in-the-large-service applitools/in-the-large-service:${npm_package_version}",
     "postpublish": "npm run publish:docker",
-    "publish:docker": "docker push applitools/service:${npm_package_version}"
+    "publish:docker": "docker push applitools/in-the-large-service:${npm_package_version}"
   },
   "keywords": [
     "applitools",

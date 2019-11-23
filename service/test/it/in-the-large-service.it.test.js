@@ -10,7 +10,7 @@ const packageJson = require('../../package.json')
 const {prepareDatabase, resetDatabase} = require('../commons/setup-database')
 const setupApp = require('./setup-app')
 
-describe('service (it)', function() {
+describe('in-the-large-service (it)', function() {
   const composePath = path.join(__dirname, 'docker-compose.yml')
 
   const envName = dockerComposeTool(before, after, composePath, {
