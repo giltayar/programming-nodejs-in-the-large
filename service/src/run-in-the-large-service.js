@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict'
-const createApp = require('./in-the-large-service')
+const createApp = require('../')
 
 async function main() {
   const app = await createApp({databaseConnectionString: process.env.DATABASE_CONNECTION_STRING})
