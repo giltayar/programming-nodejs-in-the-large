@@ -12,7 +12,7 @@
     "scripts"
   ],
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "bin": {
     "run-service": "scripts/run-in-the-large-service.js"
