@@ -40,7 +40,7 @@ describe('in-the-large-service (it)', function() {
 
     await fetchAsJsonWithJsonBody(`${baseUrl()}/api/tenants/${tenant.id}`, tenant)
 
-    expect(await fetchAsJson(`${baseUrl()}/api/tenants`)).to.eql([tenant])
+    expect(await fetchAsJson(`${baseUrl()}/api/tenants`)).to.eql([{...tenant, name: 'Gil Tayar'}])
   })
 
   it('should update a user', async () => {
@@ -54,15 +54,17 @@ describe('in-the-large-service (it)', function() {
       method: 'PUT',
     })
 
-    expect(await fetchAsJson(`${baseUrl()}/api/tenants`)).to.eql([updatedTenant])
+    expect(await fetchAsJson(`${baseUrl()}/api/tenants`)).to.eql([
+      {...updatedTenant, name: 'Gil Gayar'},
+    ])
   })
 
   it('should delete a user', async () => {
     const tenant1 = {id: uuid(), firstName: 'Gil', lastName: 'Tayar'}
     const tenant2 = {
       id: uuid(),
-      firstName: 'Shai',
-      lastName: 'Reznik',
+      firstName: 'Yoni',
+      lastName: 'Goldberg',
     }
 
     await Promise.all([
@@ -74,6 +76,8 @@ describe('in-the-large-service (it)', function() {
       method: 'DELETE',
     })
 
-    expect(await fetchAsJson(`${baseUrl()}/api/tenants`)).to.eql([tenant2])
+    expect(await fetchAsJson(`${baseUrl()}/api/tenants`)).to.eql([
+      {...tenant2, name: 'Yoni Goldberg'},
+    ])
   })
 })

@@ -3,6 +3,7 @@ const fastify = require('fastify')
 const {version} = require('../package.json')
 const retry = require('p-retry')
 const {Client} = require('pg')
+const {computeFullName} = require('@giltayar/in-the-large-library')
 
 async function createApp({databaseConnectionString}) {
   const app = fastify({logger: {}})
@@ -22,6 +23,7 @@ async function createApp({databaseConnectionString}) {
       id,
       firstName: first_name,
       lastName: last_name,
+      name: computeFullName(first_name, last_name),
     }))
   })
 
