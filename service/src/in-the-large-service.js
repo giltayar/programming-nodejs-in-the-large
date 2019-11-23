@@ -6,14 +6,9 @@ const {makeTenantDal, databaseSchema} = require('./dal/tenants')
 async function createApp({databaseConnectionString}) {
   const app = fastify({logger: {}})
 
-  console.log(`@@@GIL making tenant dal`) // @@@GIL
-
   const dal = makeTenantDal({databaseConnectionString})
-  console.log(`@@@GIL connecting tenant dal`) // @@@GIL
 
   await dal.connect()
-
-  console.log(`@@@GIL made it!`) // @@@GIL
 
   app.get('/healthz', async () => {
     await dal.checkHealth()

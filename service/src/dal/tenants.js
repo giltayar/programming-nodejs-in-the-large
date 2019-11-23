@@ -7,15 +7,12 @@ function makeTenantDal({databaseConnectionString}) {
   let databaseClient
   let databaseError
   async function connect() {
-    await retry(
-      async () => {
-        databaseClient = new Client({
-          connectionString: databaseConnectionString,
-        })
-        await databaseClient.connect()
-      },
-      {onFailedAttempt: err => console.log(`@@@GIL failed`, err) /* @@@GIL*/},
-    )
+    await retry(async () => {
+      databaseClient = new Client({
+        connectionString: databaseConnectionString,
+      })
+      await databaseClient.connect()
+    })
     databaseClient.on('error', err => (databaseError = err))
   }
 
