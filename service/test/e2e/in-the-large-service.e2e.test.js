@@ -21,7 +21,7 @@ describe('in-the-large-service (e2e)', function() {
   })
 
   it('should return OK on /healthz', async () => {
-    const appAddress = await getAddressForService(envName, composePath, 'app', 80)
+    const appAddress = await getAddressForService(envName, composePath, 'app', 3000)
 
     expect(await fetchAsJson(`http://${appAddress}/healthz`)).to.eql({version: packageJson.version})
   })

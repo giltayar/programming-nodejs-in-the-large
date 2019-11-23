@@ -1,6 +1,6 @@
 {
   "name": "@giltayar/in-the-large-service",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "",
   "main": "src/in-the-large-service.js",
   "engines": {
@@ -24,23 +24,23 @@
     "eslint": "eslint '**/*.js'",
     "build": "#",
     "postbuild": "npm run build:docker",
-    "build:docker": "docker build -t applitools/in-the-large-service --build-arg NPM_FILE=`cat ~/.npmrc` . && docker tag applitools/in-the-large-service applitools/in-the-large-service:${npm_package_version}",
+    "build:docker": "docker build -t giltayar/in-the-large-service --build-arg NPM_FILE=`cat ~/.npmrc` . && docker tag giltayar/in-the-large-service giltayar/in-the-large-service:${npm_package_version}",
     "postpublish": "npm run publish:docker",
-    "publish:docker": "docker push applitools/in-the-large-service:${npm_package_version}"
+    "publish:docker": "docker push giltayar/in-the-large-service:${npm_package_version}"
   },
   "keywords": [
-    "applitools",
+    "giltayar",
     "nodejs",
     "javascript"
   ],
-  "author": "Gil Tayar <gil.tayar@applitools.com>",
+  "author": "Gil Tayar <gil@tayar.org>",
   "license": "UNLICENSED",
   "repository": {
-    "url": "https://github.com/applitools/rendering-grid",
+    "url": "https://github.com/giltayar/programming-nodejs-in-the-large",
     "type": "git"
   },
   "dependencies": {
-    "@giltayar/in-the-large-library": "^1.0.0",
+    "@giltayar/in-the-large-library": "^2.0.0",
     "fastify": "^2.8.0",
     "p-retry": "^4.2.0",
     "pg": "^7.14.0"

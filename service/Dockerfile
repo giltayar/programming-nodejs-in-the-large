@@ -3,7 +3,7 @@ ARG NPM_FILE
 
 ENV NODE_ENV=production
 
-WORKDIR /app
+WORKDIR /home/node/app
 
 COPY package*.json ./
 RUN echo $NPM_FILE >.npmrc && \
@@ -11,7 +11,8 @@ RUN echo $NPM_FILE >.npmrc && \
     npm cache clear --force && rm -f .npmrc
 COPY . .
 
-EXPOSE 80
-ENV PORT=80
+EXPOSE 3000
+ENV PORT=3000
 
+USER node
 CMD ["node", "--max-old-space-size=200", "src/run-in-the-large-service.js"]

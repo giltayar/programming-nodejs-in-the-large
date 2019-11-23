@@ -5,7 +5,7 @@ Library that yada yada yada.
 ## Installing
 
 ```sh
-npm install @applitools/library
+npm install @giltayar/library
 ```
 
 ## Using the package
@@ -13,7 +13,7 @@ npm install @applitools/library
 yada yada yada
 
 ```js
-const yadayada = require('@applitools/library')
+const yadayada = require('@giltayar/library')
 
 yada yada yada
 ```

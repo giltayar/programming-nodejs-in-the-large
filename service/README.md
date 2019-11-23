@@ -7,21 +7,21 @@ Application that yada yada yada.
 * This package is meant to be used as a docker container, passing the environment variables as defined below.
 
 ```sh
-docker run -d applitools/service
+docker run -d giltayar/service
 ```
 
 * Alternatively, it can be run using `./scripts/run-service.js`,
   passing the environment variables as defined below.
 
 ```sh
-npm install -g @applitools/service
+npm install -g @giltayar/service
 run-service.js
 ```
 
 * Alternatively, you can import it and create the app (see below), passing it the configuration as defined below.
 
 ```sh
-npm install @applitools/service
+npm install @giltayar/service
 ```
 
 ## Services it depends on
@@ -41,7 +41,7 @@ A JSON with the following fields:
 ## Using the package to run the application
 
 ```js
-const createApp = require('@applitools/service')
+const createApp = require('@giltayar/service')
 
 // configuration options aee the same as the above corresponding environment variables
 const app = createApp({})

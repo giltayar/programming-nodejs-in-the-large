@@ -1,6 +1,6 @@
 {
   "name": "@giltayar/in-the-large-library",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "src/in-the-large-library.js",
   "engines": {
@@ -17,19 +17,10 @@
     "test:mocha": "mocha --no-timeouts --exit 'test/unit/*.test.js' 'test/it/*.test.js'",
     "eslint": "eslint '**/*.js'"
   },
-  "keywords": [
-    "applitools",
-    "testing",
-    "browser",
-    "grid",
-    "visual-testing",
-    "nodejs",
-    "javascript"
-  ],
-  "author": "Gil Tayar <gil.tayar@applitools.com>",
+  "author": "Gil Tayar <gil@tayar.org>",
   "license": "UNLICENSED",
   "repository": {
-    "url": "https://github.com/applitools/rendering-grid",
+    "url": "https://github.com/giltayar/programming-nodejs-in-the-large",
     "type": "git"
   },
   "dependencies": {
