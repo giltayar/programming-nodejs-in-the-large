@@ -1,8 +1,8 @@
 {
-  "name": "@applitools/@giltayar/programming-nodejs-in-the-large-library",
+  "name": "@giltayar/in-the-large-library",
   "version": "1.0.0",
   "description": "",
-  "main": "src/library.js",
+  "main": "src/in-the-large-library.js",
   "engines": {
     "node": ">=10.3.0"
   },
