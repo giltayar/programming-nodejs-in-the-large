@@ -1,0 +1,62 @@
+{
+  "name": "@giltayar/programming-nodejs-in-the-large-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/service.js",
+  "engines": {
+    "node": ">=10.3.0"
+  },
+  "files": [
+    "deployment",
+    "src",
+    "scripts"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "bin": {
+    "run-service": "scripts/run-service.js"
+  },
+  "scripts": {
+    "start": "scripts/run-service.js",
+    "test": "npm run eslint && npm run test:mocha-parallel",
+    "test:mocha": "mocha --no-timeouts --trace-warnings --exit 'test/unit/*.test.js' 'test/it/*.test.js' 'test/e2e/*.test.js'",
+    "test:mocha-parallel": "mocha-parallel-tests --no-timeouts --trace-warnings --exit 'test/unit/*.test.js' 'test/it/*.test.js' 'test/e2e/*.test.js'",
+    "eslint": "eslint '**/*.js'",
+    "build": "#",
+    "postbuild": "npm run build:docker",
+    "build:docker": "docker build -t applitools/service --build-arg NPM_FILE=`cat ~/.npmrc` . && docker tag applitools/service applitools/service:${npm_package_version}",
+    "postpublish": "npm run publish:docker",
+    "publish:docker": "docker push applitools/service:${npm_package_version}"
+  },
+  "keywords": [
+    "applitools",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Gil Tayar <gil.tayar@applitools.com>",
+  "license": "UNLICENSED",
+  "repository": {
+    "url": "https://github.com/applitools/rendering-grid",
+    "type": "git"
+  },
+  "dependencies": {
+    "fastify": "^2.8.0",
+    "p-retry": "^4.2.0",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "@applitools/docker-compose-mocha": "^1.4.0",
+    "@applitools/docker-compose-testkit": "^1.1.2",
+    "@applitools/http-commons": "^2.3.12",
+    "chai": "^4.2.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-mocha-no-only": "^1.1.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "mocha": "^6.2.0",
+    "mocha-parallel-tests": "^2.2.2",
+    "prettier": "^1.18.2",
+    "uuid": "^3.3.3"
+  }
+}
