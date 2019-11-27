@@ -10,6 +10,8 @@ async function main() {
 
   process.on('SIGTERM', async () => {
     await app.close()
+
+    process.exit(1)
   })
 
   app.log.info({action: 'listen-app', address, success: true})
